@@ -49,9 +49,9 @@
                         </div>
                         <div class="card-body">
                             <form action="">
-                                <input placeholder="Old Password" type="text" class="form-control my-2">
-                                <input placeholder="New Password" type="text" class="form-control my-2">
-                                <input placeholder="Confirm Password" type="text" class="form-control my-2">
+                                <input name="old" placeholder="Old Password" type="text" class="form-control my-2">
+                                <input name="password" placeholder="New Password" type="text" class="form-control my-2">
+                                <input name="password_confirmation" placeholder="Confirm Password" type="text" class="form-control my-2">
                                 <button class="btn btn-primary">Update Password</button>
                             </form>
                         </div>
