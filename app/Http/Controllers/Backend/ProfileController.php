@@ -23,9 +23,26 @@ class ProfileController extends Controller
 
 
 
+      //* DATA UPDATE
+
         if ($request->hasFile('profile_img')) {
-            echo "yes";
-        } 
+            $ext = $request->profile_img->extension();
+            $imgName = auth()->user()->name . '-' . Carbon::now()->format('d-m-y-h-m-s') . '.' . $ext;
+            $request->profile_img->storeAs('users', $imgName, 'public');
+        }
+
+
+        //*  user data update db
+        $user = User::find(auth()->user()->id);
+        $user->name = $request->userName;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        if ($request->hasFile('profile_img')) {
+            $user->profile_url = $imgName;
+        }
+
+        $user->save();
+        return back();
 
 
 
